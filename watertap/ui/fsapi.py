@@ -543,7 +543,7 @@ class FlowsheetInterface:
         u = pyo.units
         for key, mo in self.fs_exp.model_objects.items():
             mo.value = pyo.value(u.convert(mo.obj, to_units=mo.ui_units))
-            if not isinstance(mo.obj, (Expression, ExpressionBase, _ExpressionData, ScalarParam)):
+            if not isinstance(mo.obj, (Expression, ExpressionBase, _ExpressionData, ScalarParam, type(None))):
                 if mo.obj.ub is None:
                     mo.ub = mo.obj.ub
                 else:
