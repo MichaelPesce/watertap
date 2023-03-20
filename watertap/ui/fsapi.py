@@ -34,6 +34,7 @@ from pydantic import BaseModel, validator, Field
 import pyomo.environ as pyo
 from pyomo.core.expr.numeric_expr import ExpressionBase
 from pyomo.core.base.expression import Expression, _ExpressionData
+from pyomo.core.base.param import ScalarParam
 
 #: Forward-reference to a FlowsheetInterface type, used in
 #: :meth:`FlowsheetInterface.find`
@@ -542,7 +543,7 @@ class FlowsheetInterface:
         u = pyo.units
         for key, mo in self.fs_exp.model_objects.items():
             mo.value = pyo.value(u.convert(mo.obj, to_units=mo.ui_units))
-            if not isinstance(mo.obj, (Expression, ExpressionBase, _ExpressionData)):
+            if not isinstance(mo.obj, (Expression, ExpressionBase, _ExpressionData, ScalarParam)):
                 if mo.obj.ub is None:
                     mo.ub = mo.obj.ub
                 else:
