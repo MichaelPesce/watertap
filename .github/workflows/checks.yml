@@ -5,7 +5,7 @@ name: Checks
 
 on:
   push:
-    branches: [main]
+    branches: [main, testing]
   pull_request:
     branches: [main]
 
