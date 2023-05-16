@@ -23,7 +23,7 @@ def build_flowsheet():
     nf_with_bypass.initialize(m, solver)
     nf_with_bypass.unfix_opt_vars(m)
     nf.add_objective(m)
-    return m.fs
+    return m
 
 
 def solve_flowsheet(flowsheet=None):
