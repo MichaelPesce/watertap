@@ -16,7 +16,7 @@ For reference, see :class:`FlowsheetInterface` and :class:`FlowsheetExport` in t
 In some Python module, define the function ``export_to_ui``, which will look
 similar to this::
 
-    from watertap.ui.fsapi import FlowsheetInterface, FlowsheetCategory
+    from idaes_flowsheet_processor.api import FlowsheetInterface, FlowsheetCategory
     def export_to_ui():
         return FlowsheetInterface(
             name="NF-DSPM-DE",
